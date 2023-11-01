@@ -98,6 +98,14 @@ function initGallery(gagaga, parentIndex) {
         scrub.invalidate().restart();
       }
     },
+    onLeaveBack: ({ progress, direction, isActive }) => {
+      console.log("onLeaveBack", progress, direction, isActive);
+      scrollToOffset(scrub.vars.offset);
+    },
+    onLeave: ({ progress, direction, isActive }) => {
+      console.log("onLeave", progress, direction, isActive);
+      scrollToOffset(scrub.vars.offset);
+    },
     pin: true,
   });
 
@@ -127,15 +135,21 @@ function initGallery(gagaga, parentIndex) {
     if (currentIndex !== index) {
       currentIndex = index;
 
+      const categoryName = names[parentIndex];
+      const mobDetail =
+        categories[categoryName][Object.keys(categories[categoryName])[index]];
+
+      console.log("jasfjafkjfaaf", categoryName, mobDetail);
+
       changeContent(
-        parentIndex === 0 ? "passive" : "active",
+        categoryName,
         ["name", "health", "type", "detail", "trivia"],
         [
-          moob[index],
-          details[index].HP,
-          details[index].Classification,
-          details[index].Description,
-          details[index].Trivia,
+          Object.keys(categories[categoryName])[index],
+          mobDetail.HP,
+          mobDetail.Classification,
+          mobDetail.Description,
+          mobDetail.Trivia,
         ]
       );
     }

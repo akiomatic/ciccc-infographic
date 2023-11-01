@@ -1,104 +1,158 @@
 {
-  "Passive": {
-    "Cow": {
-      "HP": "10",
-      "Classification": "Passive",
-      "Description": "Cows are common passive mobs found in the Overworld.",
-      "VersionIntroduced": "Alpha 0.24_SURVIVAL_TEST",
-      "Diet": "Wheat",
-      "BiomePreference": "Plains",
-      "Trivia": "When killed, cows drop leather and beef.",
-      "ImageLink": "URL_TO_COW_IMAGE"
-    },
-    "Pig": {
-      "HP": "10",
-      "Classification": "Passive",
-      "Description": "Pigs are passive mobs that drop porkchops.",
-      "VersionIntroduced": "Alpha 0.24_SURVIVAL_TEST",
-      "Diet": "Carrots, Potatoes, and Beetroot",
-      "BiomePreference": "Plains",
-      "Trivia": "Pigs can be ridden with a saddle but need a carrot on a stick to direct them.",
-      "ImageLink": "URL_TO_PIG_IMAGE"
-    },
-    "Chicken": {
-      "HP": "4",
-      "Classification": "Passive",
-      "Description": "Chickens are small, common passive mobs.",
-      "VersionIntroduced": "Alpha 1.0.14",
-      "Diet": "Seeds",
-      "BiomePreference": "All Overworld biomes",
-      "Trivia": "Chickens lay eggs every 5 to 10 minutes.",
-      "ImageLink": "URL_TO_CHICKEN_IMAGE"
-    },
-    "Sheep": {
-      "HP": "8",
-      "Classification": "Passive",
-      "Description": "Sheep provide wool when sheared or killed.",
-      "VersionIntroduced": "Alpha 0.24_SURVIVAL_TEST",
-      "Diet": "Wheat",
-      "BiomePreference": "Plains",
-      "Trivia": "You can dye a sheep to change its wool color.",
-      "ImageLink": "URL_TO_SHEEP_IMAGE"
-    },
-    "Rabbit": {
-      "HP": "3",
-      "Classification": "Passive",
-      "Description": "Rabbits are small, passive mobs that hop around.",
-      "VersionIntroduced": "1.8 - The Bountiful Update",
-      "Diet": "Carrots, Dandelions",
-      "BiomePreference": "Deserts, Snowy Tundras, Taigas, and more",
-      "Trivia": "There's a rare 'Toast' skin for rabbits, as a tribute to a user's lost bunny.",
-      "ImageLink": "URL_TO_RABBIT_IMAGE"
-    },
-    "Turtle": {
-      "HP": "30",
-      "Classification": "Passive",
-      "Description": "Turtles are passive mobs that can be found on beaches.",
-      "VersionIntroduced": "1.13 - The Update Aquatic",
-      "Diet": "Seagrass",
-      "BiomePreference": "Beaches",
-      "Trivia": "Turtles return to their home beach to lay eggs.",
-      "ImageLink": "URL_TO_TURTLE_IMAGE"
-    },
-    "Panda": {
-      "HP": "20",
-      "Classification": "Passive",
-      "Description": "Pandas can have different personalities: lazy, worried, playful, aggressive, weak.",
-      "VersionIntroduced": "1.14 - Village & Pillage Update",
-      "Diet": "Bamboo",
-      "BiomePreference": "Bamboo Jungles",
-      "Trivia": "Baby pandas can sneeze, causing nearby adult pandas to jump.",
-      "ImageLink": "URL_TO_PANDA_IMAGE"
-    },
-    "Bat": {
-      "HP": "6",
-      "Classification": "Passive",
-      "Description": "Bats are small, flying mobs that spawn in dark caves.",
-      "VersionIntroduced": "1.4.2 - Pretty Scary Update",
-      "Diet": "Unknown",
-      "BiomePreference": "Caves",
-      "Trivia": "Bats are the only passive mob in Minecraft that spawns in darkness.",
-      "ImageLink": "URL_TO_BAT_IMAGE"
-    },
-    "Parrot": {
-      "HP": "6",
-      "Classification": "Passive",
-      "Description": "Parrots are colorful birds that can imitate mob sounds.",
-      "VersionIntroduced": "1.12 - World of Color Update",
-      "Diet": "Seeds",
-      "BiomePreference": "Jungle",
-      "Trivia": "When a music disc is played, parrots dance.",
-      "ImageLink": "URL_TO_PARROT_IMAGE"
-    },
-    "Squid": {
-      "HP": "10",
-      "Classification": "Passive",
-      "Description": "Squids are passive mobs that swim in water.",
-      "VersionIntroduced": "Beta 1.2",
-      "Diet": "Unknown",
-      "BiomePreference": "Water bodies in Overworld",
-      "Trivia": "Squids are the first passive mob to spawn at any light level, in water.",
-      "ImageLink": "URL_TO_SQUID_IMAGE"
+  "Iconic": {
+    "Title": "Iconic Mobs",
+    "Description": "These are the famous faces of Minecraft! From sneaky Creepers to tall Endermen, you've probably met some of them already.",
+    "Mobs": {
+      "Creeper": {
+        "HP": "20",
+        "Classification": "Hostile",
+        "Description": "Creepers silently approach players and explode.",
+        "Trivia": "Creepers were created by accident when trying to model a pig."
+      },
+      "Zombie": {
+        "HP": "20",
+        "Classification": "Hostile",
+        "Description": "Zombies chase players and villagers to convert them.",
+        "Trivia": "Zombies can break wooden doors on hard difficulty."
+      },
+      "Skeleton": {
+        "HP": "20",
+        "Classification": "Hostile",
+        "Description": "Skeletons use bows to attack from a distance.",
+        "Trivia": "Skeletons are more accurate when closer to the player."
+      },
+      "Enderman": {
+        "HP": "40",
+        "Classification": "Neutral",
+        "Description": "Endermen teleport and are neutral until looked at.",
+        "Trivia": "Endermen can pick up and place certain block types."
+      },
+      "Spider": {
+        "HP": "16",
+        "Classification": "Neutral",
+        "Description": "Spiders can climb vertical surfaces and are neutral by day.",
+        "Trivia": "Spiders have the ability to see players through solid blocks."
+      }
+    }
+  },
+  "Nether": {
+    "Title": "Nether Inhabitants",
+    "Description": "Hot, scary, and fiery - welcome to the Nether! Here are some of the special creatures that call it home.",
+    "Mobs": {
+      "Ghast": {
+        "HP": "10",
+        "Classification": "Hostile",
+        "Description": "Ghasts float in the Nether, shooting fireballs.",
+        "Trivia": "Ghasts' fireball explosions can extinguish Nether portals."
+      },
+      "Piglin": {
+        "HP": "16",
+        "Classification": "Neutral",
+        "Description": "Piglins are barter-loving natives of the Nether.",
+        "Trivia": "Piglins are distracted by gold items and can dance."
+      },
+      "Wither Skeleton": {
+        "HP": "20",
+        "Classification": "Hostile",
+        "Description": "Wither Skeletons inflict the Wither effect with their attacks.",
+        "Trivia": "Wither Skeletons are immune to fire and lava."
+      }
+    }
+  },
+  "Bosses": {
+    "Title": "Ultimate Challenges",
+    "Description": "The big bosses of Minecraft! These are the ultimate challenges. Are you brave enough to face them?",
+    "Mobs": {
+      "Ender Dragon": {
+        "HP": "200",
+        "Classification": "Boss",
+        "Description": "The Ender Dragon rules the End dimension.",
+        "Trivia": "Defeating it activates the End portal and spawns a dragon egg."
+      },
+      "Wither": {
+        "HP": "300",
+        "Classification": "Boss",
+        "Description": "The Wither is a player-summoned undead boss.",
+        "Trivia": "The Wither is the only source of Nether stars, used in beacons."
+      }
+    }
+  },
+  "Companions": {
+    "Title": "Useful Companions",
+    "Description": "Meet your new best friends! These creatures can help you on your adventures.",
+    "Mobs": {
+      "Wolf": {
+        "HP": "8",
+        "Classification": "Neutral",
+        "Description": "Wolves can be tamed to become dogs.",
+        "Trivia": "Tamed wolves show their health with the position of their tail."
+      },
+      "Horse": {
+        "HP": "15-30",
+        "Classification": "Passive",
+        "Description": "Horses are tameable for fast transport.",
+        "Trivia": "Horses have unique stats and can wear armor."
+      }
+    }
+  },
+  "NeutralUnique": {
+    "Title": "Neutral & Unique Mobs",
+    "Description": "Some creatures are just doing their own thing. They're special, rare, and always a fun find.",
+    "Mobs": {
+      "Polar Bear": {
+        "HP": "30",
+        "Classification": "Neutral",
+        "Description": "Polar Bears live in icy biomes and are protective of their cubs.",
+        "Trivia": "Polar Bears can stand on their hind legs when aggressive."
+      },
+      "Dolphin": {
+        "HP": "10",
+        "Classification": "Passive",
+        "Description": "Dolphins help players swim faster and lead to treasure.",
+        "Trivia": "Dolphins need both air and water to survive."
+      },
+      "Panda": {
+        "HP": "20",
+        "Classification": "Passive",
+        "Description": "Pandas have various personalities and spawn in jungles.",
+        "Trivia": "Pandas show their personality through facial expressions."
+      }
+    }
+  },
+  "VillageLife": {
+    "Title": "Village Life",
+    "Description": "Life's buzzing in the villages! Meet the folks who live and guard there.",
+    "Mobs": {
+      "Villager": {
+        "HP": "20",
+        "Classification": "Passive",
+        "Description": "Villagers offer trades and inhabit villages.",
+        "Trivia": "Villagers change their profession based on available job blocks."
+      },
+      "Iron Golem": {
+        "HP": "100",
+        "Classification": "Passive",
+        "Description": "Iron Golems protect villagers and can be player-created.",
+        "Trivia": "Iron Golems show damage through visible cracks."
+      }
+    }
+  },
+  "Rare": {
+    "Title": "Rare Encounters",
+    "Description": "Every now and then, you'll bump into these rare creatures. They bring surprises!",
+    "Mobs": {
+      "Wandering Trader": {
+        "HP": "20",
+        "Classification": "Passive",
+        "Description": "Wandering Traders offer various rare items.",
+        "Trivia": "They drink invisibility potions to avoid danger at night."
+      },
+      "Phantom": {
+        "HP": "20",
+        "Classification": "Hostile",
+        "Description": "Phantoms spawn at high altitudes near players who haven't slept.",
+        "Trivia": "Phantoms are afraid of cats and avoid them."
+      }
     }
   }
 }

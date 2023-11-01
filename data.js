@@ -1,28 +1,49 @@
 const moob = [];
 const details = [];
 
-const categories = fetch("mobs.json")
+const names = [];
+const categories = {};
+
+const cates = fetch("mobs.json")
   .then((response) => response.json())
   .then((data) => {
-    return data["Passive"];
-    // const container = document.getElementById("dataContainer");
-    // container.innerHTML = `
-    //       <p>Name: ${data.name}</p>
-    //       <p>Age: ${data.age}</p>
-    //       <p>Address: ${data.address}</p>
-    //   `;
+    return data;
   });
 
-categories.then((data) => {
-  for (const mob in data) {
-    if (Object.hasOwnProperty.call(data, mob)) {
-      const element = data[mob];
+cates.then((result) => {
+  const body = document.querySelector("#categories");
 
-      const container = document.getElementById("passive-cards");
-      container.innerHTML += `<li><img src="assets/image/${mob.toLocaleLowerCase()}.png" alt="""></li>`;
-      moob.push(mob);
-      details.push(element);
+  for (const cat in result) {
+    let data = result[cat];
+    const name = cat.toLowerCase();
+    const title = data["Title"];
+    const descriptipn = data["Description"];
+
+    let html = ``;
+    html += `<div id="${name}" class="category"> <section class="category-title">${title}</section> <section class="category-introduction">${descriptipn}</section> <div class="mobs"> <div class="mob-carousel"> <div clas="gallery"> <ul id="${name}-cards" class="cards">`;
+
+    data = data["Mobs"];
+
+    const mobs = {};
+
+    for (const mob in data) {
+      if (Object.hasOwnProperty.call(data, mob)) {
+        const element = data[mob];
+
+        html += `<li><img src="assets/image/${mob.toLocaleLowerCase()}.png" alt="""></li>`;
+
+        console.log(mob, element);
+
+        mobs[mob] = element;
+      }
     }
+
+    names.push(name);
+    categories[name] = mobs;
+
+    html += `</ul> </div> <div class="drag-proxy"></div> </div> <div class="mob-description"> <div class="name fade-effect"> <p id="name" class="fade-effect">Creeper</p> </div> <div class="mob-information"> <!-- Health --> <p class="mob-information-field">Health:</p> <p id="health" class="mob-information-value fade-effect">10</p> <!-- Type --> <p class="mob-information-field">Type:</p> <p id="type" class="mob-information-value fade-effect">Lorem</p> <!-- Detail --> <p class="mob-information-field">Detail:</p> <p id="detail" class="mob-information-value fade-effect"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, eligendi? </p> <!-- Trivia --> <p class="mob-information-field">Trivia:</p> <p id="trivia" class="mob-information-value fade-effect"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, omnis? </p> </div> </div> </div> </div>`;
+
+    body.innerHTML += html;
   }
 });
 
@@ -42,6 +63,8 @@ window.onbeforeunload = function () {
 
 function changeContent(parentElement, ids, newContent) {
   let section = document.getElementById(parentElement);
+
+  console.log(newContent);
 
   ids.forEach((id, index) => {
     let element = section.querySelector("#" + id);
