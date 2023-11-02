@@ -13,6 +13,8 @@ const cates = fetch("mobs.json")
 cates.then((result) => {
   const body = document.querySelector("#categories");
 
+  let firstMob;
+
   for (const cat in result) {
     let data = result[cat];
     const name = cat.toLowerCase();
@@ -32,7 +34,7 @@ cates.then((result) => {
 
         html += `<li><img src="assets/image/${mob
           .toLocaleLowerCase()
-          .replaceAll(" ", "")}.png" alt="""></li>`;
+          .replaceAll(" ", "")}.png" alt="Mob image of ${mob}"></li>`;
 
         console.log(mob, element);
 
@@ -43,7 +45,19 @@ cates.then((result) => {
     names.push(name);
     categories[name] = mobs;
 
-    html += `</ul> </div> <div class="drag-proxy"></div> </div> <div class="mob-description"> <div class="name fade-effect"> <p id="name" class="fade-effect">Creeper</p> </div> <div class="mob-information"> <!-- Health --> <p class="mob-information-field">Health:</p> <p id="health" class="mob-information-value fade-effect">10</p> <!-- Type --> <p class="mob-information-field">Type:</p> <p id="type" class="mob-information-value fade-effect">Lorem</p> <!-- Detail --> <p class="mob-information-field">Detail:</p> <p id="detail" class="mob-information-value fade-effect"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, eligendi? </p> <!-- Trivia --> <p class="mob-information-field">Trivia:</p> <p id="trivia" class="mob-information-value fade-effect"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta, omnis? </p> </div> </div> </div> </div>`;
+    firstMob = mobs[Object.keys(mobs)[0]];
+
+    html += `</ul> </div> <div class="drag-proxy"></div> </div> <div class="mob-description"> <div class="name fade-effect"> <p id="name" class="fade-effect">${
+      Object.keys(mobs)[0]
+    }</p> </div> <div class="mob-information"> <!-- Health --> <p class="mob-information-field">Health:</p> <p id="health" class="mob-information-value fade-effect">${
+      firstMob.HP
+    }</p> <!-- Type --> <p class="mob-information-field">Type:</p> <p id="type" class="mob-information-value fade-effect">${
+      firstMob.Classification
+    }</p> <!-- Detail --> <p class="mob-information-field">Detail:</p> <p id="detail" class="mob-information-value fade-effect">${
+      firstMob.Description
+    }</p> <!-- Trivia --> <p class="mob-information-field">Trivia:</p> <p id="trivia" class="mob-information-value fade-effect">${
+      firstMob.Trivia
+    }</p> </div> </div> </div> </div>`;
 
     body.innerHTML += html;
   }
