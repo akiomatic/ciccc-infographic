@@ -81,6 +81,7 @@ function formatHealthDisplay(hp) {
     if (hp <= 10) {
       number += `${full.repeat(fullHearts)}${halfHeart}`;
     } else {
+      hp = Math.round((hp / 2) * 100) / 100;
       number += `${full} <div>&nbsp;&nbsp;x&nbsp;&nbsp;${
         hp % 1 === 0 ? fullHearts : hp
       }</div>`;
