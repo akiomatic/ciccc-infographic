@@ -106,7 +106,7 @@
         "Trivia": "Sheep regrow their wool by eating grass and can be bred with wheat."
       },
       "Wolf": {
-        "HP": "8",
+        "HP": "7",
         "Classification": "Neutral",
         "Description": "Wolves can be tamed to become dogs.",
         "Trivia": "Tamed wolves show their health with the position of their tail."

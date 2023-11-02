@@ -75,16 +75,13 @@ function formatHealthDisplay(hp) {
     number = `<p>${hp}</p> <div class="bracket-start">(</div>`;
 
     full = `<i class="bi-heart-fill"></i>`;
-    fullHearts = Math.floor(hp / 2);
-    halfHeart = hp % 1 !== 0 ? `<i class="bi-heart-half"></i>` : "";
+    fullHearts = Math.round((hp / 2) * 100) / 100;
+    halfHeart = fullHearts % 1 !== 0 ? `<i class="bi-heart-half"></i>` : "";
 
     if (hp <= 10) {
       number += `${full.repeat(fullHearts)}${halfHeart}`;
     } else {
-      hp = Math.round((hp / 2) * 100) / 100;
-      number += `${full} <div>&nbsp;&nbsp;x&nbsp;&nbsp;${
-        hp % 1 === 0 ? fullHearts : hp
-      }</div>`;
+      number += `${full} <div>&nbsp;&nbsp;x&nbsp;&nbsp;${fullHearts}</div>`;
     }
 
     number += `<div class="bracket-end">)</div>`;
