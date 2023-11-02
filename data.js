@@ -49,9 +49,9 @@ cates.then((result) => {
 
     html += `</ul> </div> <div class="drag-proxy"></div> </div> <div class="mob-description"> <div class="name fade-effect"> <p id="name" class="fade-effect">${
       Object.keys(mobs)[0]
-    }</p> </div> <div class="mob-information"> <!-- Health --> <p class="mob-information-field">Health:</p> <p id="health" class="mob-information-value fade-effect">${
+    }</p> </div> <div class="mob-information"> <!-- Health --> <p class="mob-information-field">Health:</p> <div id="health" class="mob-information-value fade-effect"> ${formatHealthDisplay(
       firstMob.HP
-    }</p> <!-- Type --> <p class="mob-information-field">Type:</p> <p id="type" class="mob-information-value fade-effect">${
+    )} </div> <!-- Type --> <p class="mob-information-field">Type:</p> <p id="type" class="mob-information-value fade-effect">${
       firstMob.Classification
     }</p> <!-- Detail --> <p class="mob-information-field">Detail:</p> <p id="detail" class="mob-information-value fade-effect">${
       firstMob.Description
@@ -63,15 +63,44 @@ cates.then((result) => {
   }
 });
 
-// // Function to log current scroll position
-// function logScrollPosition() {
-//   var scrollX = window.scrollX; // Horizontal scroll position
-//   var scrollY = window.scrollY; // Vertical scroll position
-//   console.log("Scroll position - X: " + scrollX + ", Y: " + scrollY);
-// }
+function formatHealthDisplay(hp) {
+  let output = "",
+    number,
+    full,
+    fullHearts,
+    halfHeart;
+  const hps = hp.split("-");
+  for (let i = 0; i < hps.length; i++) {
+    hp = hps[i];
+    number = `<p>${hp}</p> <div class="bracket-start">(</div>`;
 
-// // Add the event listener
-// window.addEventListener("scroll", logScrollPosition);
+    full = `<i class="bi-heart-fill"></i>`;
+    fullHearts = Math.floor(hp);
+    halfHeart = hp % 1 !== 0 ? `<i class="bi-heart-half"></i>` : "";
+
+    if (hp <= 10) {
+      number += `${full.repeat(fullHearts)}${halfHeart}`;
+    } else {
+      hp = Math.round((hp / 2) * 100) / 100;
+      number += `${full} <div>&nbsp;&nbsp;x&nbsp;&nbsp;${
+        hp % 1 === 0 ? Math.floor(hp) : hp
+      }</div>`;
+    }
+
+    number += `<div class="bracket-end">)</div>`;
+    output += number;
+
+    if (hps.length > 1 && i !== hps.length - 1) {
+      output += `<div class="bracket-separator">${
+        hps.length === 2 ? "to" : "-"
+      }</div>`;
+    }
+  }
+
+  console.log(hp, output);
+
+  return output;
+}
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
@@ -80,11 +109,8 @@ window.onbeforeunload = function () {
 function changeContent(parentElement, ids, newContent) {
   let section = document.getElementById(parentElement);
 
-  console.log(newContent);
-
   ids.forEach((id, index) => {
     let element = section.querySelector("#" + id);
-    // console.log(index, element);
     element.classList.add("fade-out");
   });
 
@@ -95,7 +121,10 @@ function changeContent(parentElement, ids, newContent) {
 
       element = section.querySelector("#" + id);
 
-      element.innerHTML = newContent[index];
+      element.innerHTML =
+        id === "health"
+          ? formatHealthDisplay(newContent[index])
+          : newContent[index];
 
       element.classList.remove("fade-out");
       element.classList.add("fade-in");
