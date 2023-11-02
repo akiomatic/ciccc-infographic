@@ -30,7 +30,9 @@ cates.then((result) => {
       if (Object.hasOwnProperty.call(data, mob)) {
         const element = data[mob];
 
-        html += `<li><img src="assets/image/${mob.toLocaleLowerCase()}.png" alt="""></li>`;
+        html += `<li><img src="assets/image/${mob
+          .toLocaleLowerCase()
+          .replaceAll(" ", "")}.png" alt="""></li>`;
 
         console.log(mob, element);
 

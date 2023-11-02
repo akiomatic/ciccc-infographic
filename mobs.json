@@ -81,6 +81,30 @@
     "Title": "Useful Companions",
     "Description": "Meet your new best friends! These creatures can help you on your adventures.",
     "Mobs": {
+      "Pig": {
+        "HP": "10",
+        "Classification": "Passive",
+        "Description": "Pigs are passive mobs that can be ridden with a saddle and directed with a carrot on a stick.",
+        "Trivia": "Feeding two pigs creates a baby piglet, and they can also be led around with a lead."
+      },
+      "Chicken": {
+        "HP": "4",
+        "Classification": "Passive",
+        "Description": "Chickens lay eggs and are a good source of food and feathers.",
+        "Trivia": "When thrown, eggs have a chance to hatch baby chickens."
+      },
+      "Cow": {
+        "HP": "10",
+        "Classification": "Passive",
+        "Description": "Cows provide leather and can be milked with a bucket.",
+        "Trivia": "Cows can be bred with wheat and follow players holding it."
+      },
+      "Sheep": {
+        "HP": "8",
+        "Classification": "Passive",
+        "Description": "Sheep provide wool and can be dyed in various colors.",
+        "Trivia": "Sheep regrow their wool by eating grass and can be bred with wheat."
+      },
       "Wolf": {
         "HP": "8",
         "Classification": "Neutral",
