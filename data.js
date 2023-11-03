@@ -34,7 +34,7 @@ cates.then((result) => {
 
         html += `<li><img src="assets/image/${mob
           .toLocaleLowerCase()
-          .replaceAll(" ", "")}.png" alt="Mob image of ${mob}"></li>`;
+          .replaceAll(" ", "")}.webp" alt="Mob image of ${mob}"></li>`;
 
         console.log(mob, element);
 
