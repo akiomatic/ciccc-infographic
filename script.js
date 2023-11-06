@@ -5,6 +5,8 @@ const delays = 0.3;
 function initGallery(gagaga, parentIndex) {
   gsap.set(gagaga, { autoAlpha: 1 });
 
+  const indicator = document.getElementById(gagaga.id + "-indicator");
+
   /**
    * The number of iterations that have occurred.
    * Incremented when the user scrolls past the end of the gallery.
@@ -34,6 +36,8 @@ function initGallery(gagaga, parentIndex) {
 
   // Get the cards and create an array of them
   const cards = gsap.utils.toArray(gagaga.querySelectorAll(".cards li"));
+
+  indicator.style.width = (1 / cards.length) * 100 + "%";
 
   // Create a timeline that will be used to animate the cards
   // This function will get called for each element in the buildSeamlessLoop() function, and we just need to return an animation that'll get inserted into a master timeline, spaced
@@ -118,6 +122,8 @@ function initGallery(gagaga, parentIndex) {
       let index = Math.abs(Math.ceil(progress * (cards.length - 1)));
 
       if (index > cards.length - 1) return;
+
+      indicator.style.width = ((index + 1) / cards.length) * 100 + "%";
 
       if (currentIndex !== index) {
         currentIndex = index;

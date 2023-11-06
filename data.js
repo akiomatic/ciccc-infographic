@@ -23,7 +23,7 @@ cates.then((result) => {
     const descriptipn = data["Description"];
 
     let html = ``;
-    html += `<div id="${name}" class="category"> <section class="category-title">${title}</section> <section class="category-introduction">${descriptipn}</section> <div class="mobs"> <div class="mob-carousel"> <div clas="gallery"> <ul id="${name}-cards" class="cards">`;
+    html += `<div id="${name}" class="category"> <section class="category-title">${title}</section> <section class="category-introduction">${descriptipn}</section> <div class="mobs"> <div class="indicator" id="${name}-indicator"></div> <div class="mob-carousel"> <div clas="gallery"> <ul id="${name}-cards" class="cards">`;
 
     data = data["Mobs"];
 
