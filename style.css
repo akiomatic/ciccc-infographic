@@ -1,8 +1,8 @@
 @font-face {
   font-family: "Minecraft";
-  src: url("assets/fonts/minecraft_font.ttf") format("truetype"),
-    url("assets/fonts/minecraft_font.woff") format("woff"),
-    url("assets/fonts/minecraft_font.woff2") format("woff2");
+  src: url("/fonts/minecraft_font.ttf") format("truetype"),
+    url("/fonts/minecraft_font.woff") format("woff"),
+    url("/fonts/minecraft_font.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -74,7 +74,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("assets/background/full.webp");
+  background-image: url("/background/full.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -117,7 +117,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-image: url("assets/background/earth.webp");
+  background-image: url("/background/earth.webp");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -202,7 +202,7 @@ body {
 }
 
 #iconic {
-  background-image: url("assets/background/night.webp");
+  background-image: url("/background/night.webp");
 }
 
 #iconic::after {
@@ -220,21 +220,21 @@ body {
 }
 
 #bosses {
-  background-image: url("assets/background/end.webp");
+  background-image: url("/background/end.webp");
 }
 
 #nether {
-  background-image: url("assets/background/nether.webp");
+  background-image: url("/background/nether.webp");
 }
 
 #villagelife {
-  background-image: url("assets/background/village.webp");
+  background-image: url("/background/village.webp");
 }
 
 #companions,
 #neutralunique,
 #rare {
-  background-image: url("assets/background/neutral.webp");
+  background-image: url("/background/neutral.webp");
 }
 
 .category .category-title {

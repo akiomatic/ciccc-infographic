@@ -33,7 +33,7 @@ cates.then((result) => {
       if (Object.hasOwnProperty.call(data, mob)) {
         const element = data[mob];
 
-        html += `<li><img src="assets/image/${mob
+        html += `<li><img src="/image/${mob
           .toLocaleLowerCase()
           .replaceAll(" ", "")}.webp" alt="Mob image of ${mob}"></li>`;
 
