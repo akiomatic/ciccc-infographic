@@ -79,31 +79,72 @@ function initGallery(gagaga, parentIndex) {
     ease: "power3",
     paused: true,
   });
+  let previous = true;
   const trigger = ScrollTrigger.create({
     trigger: gagaga,
     start: "top top",
     ends: " bottom bottom",
-    // markers: true,
+    markers: true,
     onUpdate: function (self) {
       // let scroll = self.scroll();
       const offset = (iteration + self.progress) * seamlessLoop.duration();
 
-      if (
-        offset < delays ||
-        offset > seamlessLoop.duration() - delays - spacing
-      ) {
-        return;
-      } else {
+      // Move the playhead to the specified offset on the timeline.
+      // For more detail: https://gsap.com/docs/v3/GSAP/UtilityMethods/snap()#2-snapsnapincrement
+      let snappedTime = snapTime(offset - delays);
+
+      // Calculate the progress of the current card
+      let progress = Math.min(
+        (snappedTime - (seamlessLoop.duration() - delays * 2) * iteration) /
+          (seamlessLoop.duration() - delays * 2),
+        2
+      );
+
+      if (offset < delays) return;
+
+      let shouldUpdate =
+        seamlessLoop.duration() - delays - spacing - offset > 0;
+
+      if (shouldUpdate) {
         scrub.vars.offset = offset;
-        scrub.invalidate().restart();
+        previous = true;
+      } else if (previous) {
+        scrub.vars.offset = offset;
+        previous = false;
+      }
+      scrub.invalidate().restart();
+
+      // Calculate the index of the current card by multiplying the progress by the number of cards
+      let index = Math.abs(Math.ceil(progress * (cards.length - 1)));
+
+      if (index > cards.length - 1) return;
+
+      if (currentIndex !== index) {
+        currentIndex = index;
+
+        const categoryName = names[parentIndex];
+        const mobDetail =
+          categories[categoryName][
+            Object.keys(categories[categoryName])[index]
+          ];
+
+        changeContent(
+          categoryName,
+          ["name", "health", "type", "detail", "trivia"],
+          [
+            Object.keys(categories[categoryName])[index],
+            mobDetail.HP,
+            mobDetail.Classification,
+            mobDetail.Description,
+            mobDetail.Trivia,
+          ]
+        );
       }
     },
     onLeaveBack: ({ progress, direction, isActive }) => {
-      console.log("onLeaveBack", progress, direction, isActive);
       scrollToOffset(scrub.vars.offset);
     },
     onLeave: ({ progress, direction, isActive }) => {
-      console.log("onLeave", progress, direction, isActive);
       scrollToOffset(scrub.vars.offset);
     },
     pin: true,
@@ -129,31 +170,6 @@ function initGallery(gagaga, parentIndex) {
         actualScrollY
     );
 
-    // Calculate the index of the current card by multiplying the progress by the number of cards
-    let index = Math.abs(Math.ceil(progress * (cards.length - 1)));
-
-    if (currentIndex !== index) {
-      currentIndex = index;
-
-      const categoryName = names[parentIndex];
-      const mobDetail =
-        categories[categoryName][Object.keys(categories[categoryName])[index]];
-
-      console.log("jasfjafkjfaaf", categoryName, mobDetail);
-
-      changeContent(
-        categoryName,
-        ["name", "health", "type", "detail", "trivia"],
-        [
-          Object.keys(categories[categoryName])[index],
-          mobDetail.HP,
-          mobDetail.Classification,
-          mobDetail.Description,
-          mobDetail.Trivia,
-        ]
-      );
-    }
-
     return a;
   };
 
@@ -165,15 +181,6 @@ function initGallery(gagaga, parentIndex) {
 
   // when the user stops scrolling, snap to the closest item
   ScrollTrigger.addEventListener("scrollEnd", () => {
-    const offset = scrub.vars.offset;
-    if (
-      offset < delays ||
-      offset > seamlessLoop.duration() - delays - spacing
-    ) {
-      console.log("test is stopping");
-      return;
-    }
-
     scrollToOffset(scrub.vars.offset);
   });
 
@@ -184,7 +191,6 @@ function initGallery(gagaga, parentIndex) {
     }
 
     if (offset < delays) {
-      console.log("今はdelay中だよ");
       return;
     }
 

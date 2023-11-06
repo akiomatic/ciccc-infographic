@@ -12,6 +12,7 @@ const cates = fetch("mobs.json")
 
 cates.then((result) => {
   const body = document.querySelector("#categories");
+  // const body = document.querySelector(".footer");
 
   let firstMob;
 
@@ -36,8 +37,6 @@ cates.then((result) => {
           .toLocaleLowerCase()
           .replaceAll(" ", "")}.webp" alt="Mob image of ${mob}"></li>`;
 
-        console.log(mob, element);
-
         mobs[mob] = element;
       }
     }
@@ -60,6 +59,7 @@ cates.then((result) => {
     }</p> </div> </div> </div> </div>`;
 
     body.innerHTML += html;
+    // body.insertAdjacentHTML("beforebegin", html);
   }
 });
 
@@ -93,8 +93,6 @@ function formatHealthDisplay(hp) {
       }</div>`;
     }
   }
-
-  console.log(hp, output);
 
   return output;
 }
