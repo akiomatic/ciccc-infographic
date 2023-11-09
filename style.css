@@ -231,10 +231,16 @@ body {
   background-image: url("/background/village.webp");
 }
 
-#companions,
-#neutralunique,
-#rare {
+#companions {
+  background-image: url("/background/companions.webp");
+}
+
+#neutralunique {
   background-image: url("/background/neutral.webp");
+}
+
+#rare {
+  background-image: url("/background/rare.webp");
 }
 
 .category .category-title {
