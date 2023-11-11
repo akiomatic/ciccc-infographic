@@ -523,6 +523,7 @@ body {
 
   .footer h1 {
     font-size: 1.75rem !important;
+    padding: 0 1rem !important;
   }
 
   .category-title {
