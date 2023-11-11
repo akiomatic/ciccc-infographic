@@ -138,7 +138,7 @@ body {
 }
 
 .introduction .introduction-contents {
-  width: 75%;
+  width: 60%;
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 3rem;
@@ -514,6 +514,17 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .introduction-contents,
+  .footer main {
+    width: 90% !important;
+    font-size: 1.2rem !important;
+    line-height: 1.5rem;
+  }
+
+  .footer h1 {
+    font-size: 1.75rem !important;
+  }
+
   .category-title {
     font-size: 2rem !important;
     padding-bottom: 1rem !important;
