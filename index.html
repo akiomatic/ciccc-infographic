@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, maximum-scale=1.0, user-scalable=1"
+    />
+    <title>Minecraft Moblopedia</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div id="scroll-container" class="scroll-container">
+      <section class="landing">
+        <h1>Minecraft Moblopedia</h1>
+      </section>
+      <section class="introduction">
+        <div class="introduction-background"></div>
+        <main class="introduction-contents">
+          In the vast universe of Minecraft, players encounter a variety of
+          creatures known as
+          <span class="text-emphasis">mobs</span>.<br /><br />
+          From friendly companions to fierce adversaries, each mob presents
+          unique challenges and opportunities.<br /><br />Learn about them
+          one-by-one in the guide to Minecraft creatures.
+        </main>
+      </section>
+      <div id="categories">
+        <!-- All categories with their respective mobs will be displayed here.  -->
+      </div>
+      <section class="footer">
+        <div class="footer-background"></div>
+        <h1>Thank you for reading this far!</h1>
+        <main>
+          We've covered only 23 mobs on this page.<br />
+          However, there're currently more than 80 mobs, so please check out the
+          <a href="https://minecraft.fandom.com/wiki/Mob" target="_blank"
+            >Minecraft Wiki</a
+          >
+          for more information.
+        </main>
+      </section>
+    </div>
+
+    <script type="text/javascript" src="data.js"></script>
+
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
+
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

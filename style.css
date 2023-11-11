@@ -1,0 +1,639 @@
+@font-face {
+  font-family: "Minecraft";
+  src: url("/fonts/minecraft_font.ttf") format("truetype"),
+    url("/fonts/minecraft_font.woff") format("woff"),
+    url("/fonts/minecraft_font.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Styles.css */
+
+p {
+  margin: 0;
+}
+
+.fade-effect {
+  /* Initial state */
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out; /* Customize as needed */
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+.minecraft-box {
+  width: 100px; /* or the size you prefer */
+  height: 100px; /* or the size you prefer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6a8759; /* Minecraft grass color, change as needed */
+  border: 4px solid #556b2f; /* darker shade for the border, mimicking pixel effect */
+  box-sizing: border-box;
+}
+
+/* Optional: Adding some effects to mimic Minecraft block styling */
+.minecraft-box:hover {
+  cursor: pointer;
+  transform: scale(1.1); /* slightly enlarges the box */
+  transition: transform 0.3s ease-in-out;
+}
+* {
+  box-sizing: border-box;
+  font-family: "Minecraft", sans-serif;
+}
+
+/* ------------------------------ Global ------------------------------------ */
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+
+.text-emphasis {
+  color: yellow;
+  font-weight: bold;
+}
+
+.header,
+.main,
+.parallax,
+.landing,
+.introduction,
+.footer {
+  width: 100vw;
+  height: 100vh;
+}
+
+.category::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/background/full.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.landing::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 40vh;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.landing h1 {
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.introduction {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+}
+
+.introduction .introduction-background,
+.footer .footer-background {
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("/background/earth.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(2px) brightness(50%);
+}
+
+.introduction .introduction-contents {
+  width: 60%;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 3rem;
+  text-align: center;
+  z-index: 10;
+}
+
+/* #passive::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 40vh;
+  top: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 90%
+  );
+  z-index: -1;
+} */
+
+/* .parallax {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 5vw;
+}
+
+.parallax img {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  top: 0;
+  left: 0;
+}
+
+.parallax::after {
+  content: "";
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+} */
+
+.char {
+  transform: translateY(30px);
+  transition: transform 200ms;
+}
+
+/* ------------------------------ Main category----------------------------- */
+
+.category-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.category {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+#iconic {
+  background-image: url("/background/night.webp");
+}
+
+#iconic::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 30vh;
+  top: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 2;
+}
+
+#bosses {
+  background-image: url("/background/end.webp");
+}
+
+#nether {
+  background-image: url("/background/nether.webp");
+}
+
+#villagelife {
+  background-image: url("/background/village.webp");
+}
+
+#companions {
+  background-image: url("/background/companions.webp");
+}
+
+#neutralunique {
+  background-image: url("/background/neutral.webp");
+}
+
+#rare {
+  background-image: url("/background/rare.webp");
+}
+
+.category .category-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 0 0 1.5rem 0;
+  z-index: 10;
+}
+
+.category .category-introduction {
+  width: 75%;
+  font-size: 1.2rem;
+  line-height: 2.3rem;
+  text-align: center;
+  padding: 0 0 2rem 0;
+  z-index: 10;
+}
+
+/* ------------------------- Mobs ---------------------------- */
+
+.mobs {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid #000;
+  align-items: center;
+  overflow: hidden;
+  padding-left: 15rem;
+}
+
+.indicator {
+  background: brown;
+  height: 5px;
+  border-radius: 5px;
+  width: 0%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  transition: width 600ms;
+}
+
+/* ----------------- Mob Carousel --------------------- */
+
+.mob-carousel {
+  width: 30%;
+  height: 100%;
+  /* background-color: red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery {
+  position: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  background-color: purple;
+}
+
+.cards {
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 20rem;
+  height: 100%;
+  text-align: center;
+  line-height: 150px;
+  font-size: 4rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards li img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 0.8rem;
+}
+
+.drag-proxy {
+  visibility: hidden;
+  position: absolute;
+}
+
+/* ----------------- Mob Description --------------------- */
+
+.mob-description {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 14rem 3rem 5rem;
+  color: #000;
+  text-shadow: 3px 3px rgba(255, 255, 255, 0.449);
+}
+
+/* ---------- Mob Name ------------ */
+
+.name {
+  display: block;
+  font-size: 2rem;
+  width: 100%;
+  padding: 1rem 2.5rem;
+  border: 1px solid #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- Mob Info ------------ */
+
+.mob-information {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  row-gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.mob-information p {
+  font-size: 1.5rem;
+}
+
+.mob-information-field {
+  /* border: 1px solid #333;  */
+  /* padding: 10px; */
+  /* line-height: 3rem; */
+  height: 3em;
+}
+
+.mob-information-value {
+  /* width: auto; */
+}
+
+#health {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: fit-content;
+
+  & div {
+    font-size: 1rem;
+  }
+
+  & i {
+    font-size: 1rem;
+    color: #ff1414;
+    text-shadow: black 0.1em 0.1em 0.2em;
+  }
+
+  & .bracket-start {
+    margin-left: 0.5rem;
+  }
+
+  & .bracket-end,
+  & i:last-child {
+    margin-right: 0.5rem;
+    margin-left: 0.2rem;
+  }
+
+  & i:last-child {
+    margin-left: 0.1rem;
+  }
+
+  & .bracket-separator {
+    margin-right: 1rem;
+    margin-left: 0.5rem;
+  }
+}
+
+.mob-information p:nth-last-child(2),
+.mob-information p:last-child {
+  margin: 1.5rem 0;
+}
+
+/* ---------- Mob Link ------------ */
+
+.mob-more {
+  padding: 0.5rem;
+}
+
+/* ------------------------------ Responsive -------------------------------- */
+
+@media screen and (min-width: 1201px) and (max-width: 1400px) {
+  .mobs {
+    padding-left: 5rem !important;
+  }
+
+  .mob-description {
+    padding: 3rem 5rem !important;
+  }
+
+  .cards {
+    width: 15rem !important;
+    height: 15rem !important;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+  .name {
+    font-size: 1.4rem !important;
+  }
+
+  .mobs {
+    padding-left: 5rem !important;
+  }
+
+  .mob-description {
+    padding: 3rem 5rem !important;
+  }
+
+  .mob-information p {
+    font-size: 1.2rem !important;
+  }
+
+  .cards {
+    width: 13rem;
+    height: 13rem;
+  }
+
+  .cards li {
+    width: 13rem;
+    height: 13rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .introduction-contents,
+  .footer main {
+    width: 90% !important;
+    font-size: 1.2rem !important;
+    line-height: 1.5rem;
+  }
+
+  .footer h1 {
+    font-size: 1.75rem !important;
+    padding: 0 1rem !important;
+  }
+
+  .category-title {
+    font-size: 2rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .category-introduction {
+    font-size: 0.8rem !important;
+    line-height: 1.2rem !important;
+  }
+
+  .landing h1 {
+    font-size: 3rem;
+  }
+
+  .mobs {
+    flex: 1;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    overflow: visible;
+    padding-left: 0;
+  }
+
+  .mob-carousel {
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .cards {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cards li {
+    width: 150px;
+    height: 150px;
+  }
+
+  .cards li img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 0.8rem;
+  }
+
+  .mob-description {
+    padding: 0 2rem;
+  }
+
+  .name {
+    font-size: 1.4rem;
+  }
+
+  .mob-information p {
+    font-size: 1rem;
+  }
+
+  .mob-more {
+    font-size: 1rem;
+  }
+
+  #health {
+    & > div {
+      font-size: 0.9rem;
+    }
+
+    & > i {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+/* ------------------------- Footer --------------------------- */
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #000;
+  text-align: center;
+
+  & > h1,
+  & > main {
+    z-index: 1;
+  }
+
+  & > h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0 0 1rem 0;
+  }
+
+  & > main {
+    width: 60%;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 3rem;
+    text-align: center;
+
+    & > a {
+      color: yellow;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  }
+}
