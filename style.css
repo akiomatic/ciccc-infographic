@@ -70,6 +70,18 @@ body {
   height: 100vh;
 }
 
+.category::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+
 .landing {
   display: flex;
   justify-content: center;
@@ -110,7 +122,8 @@ body {
   background-color: #000;
 }
 
-.introduction .introduction-background {
+.introduction .introduction-background,
+.footer .footer-background {
   position: absolute;
   width: 60%;
   height: 60%;
@@ -178,6 +191,11 @@ body {
     rgba(0, 0, 0, 0.7) 100%
   );
 } */
+
+.char {
+  transform: translateY(30px);
+  transition: transform 200ms;
+}
 
 /* ------------------------------ Main category----------------------------- */
 
@@ -567,6 +585,43 @@ body {
 
     & > i {
       font-size: 0.9rem;
+    }
+  }
+}
+
+/* ------------------------- Footer --------------------------- */
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #000;
+  text-align: center;
+
+  & > h1,
+  & > main {
+    z-index: 1;
+  }
+
+  & > h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0 0 1rem 0;
+  }
+
+  & > main {
+    width: 75%;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 3rem;
+    text-align: center;
+
+    & > a {
+      color: yellow;
+      text-decoration: underline;
+      font-weight: bold;
     }
   }
 }
