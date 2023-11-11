@@ -88,7 +88,7 @@ function initGallery(gagaga, parentIndex) {
     trigger: gagaga,
     start: "top top",
     ends: " bottom bottom",
-    markers: true,
+    // markers: true,
     onUpdate: function (self) {
       // let scroll = self.scroll();
       const offset = (iteration + self.progress) * seamlessLoop.duration();
